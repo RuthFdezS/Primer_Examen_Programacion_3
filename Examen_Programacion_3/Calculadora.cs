@@ -21,111 +21,63 @@ namespace Examen_Programacion_3
             InitializeComponent();
         }
 
-
-        private void btn_limpiar_Click(object sender, EventArgs e)
-        {
-            this.txtPantalla.Clear();
-        }
-
+        #region BOTONES NÚMEROS
         private void btn_uno_Click(object sender, EventArgs e)
         {
-            if (tipo_ope == -1) {
-                txtPantalla.Clear();
-                tipo_ope = 0;
-            }
-              
-            txtPantalla.Text += "1";
-
+            agregar_numero("1");
         }
 
         private void btn_dos_Click(object sender, EventArgs e)
         {
-            if (tipo_ope == -1)
-            {
-                txtPantalla.Clear();
-                tipo_ope = 0;
-            }
-            txtPantalla.Text += "2";
+            agregar_numero("2");
         }
 
         private void btn_tres_Click(object sender, EventArgs e)
         {
-            if (tipo_ope == -1)
-            {
-                txtPantalla.Clear();
-                tipo_ope = 0;
-            }
-            txtPantalla.Text += "3";
+            agregar_numero("3");
         }
 
         private void btn_cuatro_Click(object sender, EventArgs e)
         {
-            if (tipo_ope == -1)
-            {
-                txtPantalla.Clear();
-                tipo_ope = 0;
-            }
-            txtPantalla.Text += "4";
+            agregar_numero("4");
         }
 
         private void btn_cinco_Click(object sender, EventArgs e)
         {
-            if (tipo_ope == -1)
-            {
-                txtPantalla.Clear();
-                tipo_ope = 0;
-            }
-            txtPantalla.Text += "5";
+            agregar_numero("5");
         }
 
         private void btn_seis_Click(object sender, EventArgs e)
         {
-            if (tipo_ope == -1)
-            {
-                txtPantalla.Clear();
-                tipo_ope = 0;
-            }
-            txtPantalla.Text += "6";
+            agregar_numero("6");
         }
 
         private void btn_siete_Click(object sender, EventArgs e)
         {
-            if (tipo_ope == -1)
-            {
-                txtPantalla.Clear();
-                tipo_ope = 0;
-            }
-            txtPantalla.Text += "7";
+            agregar_numero("7");
         }
 
         private void btn_ocho_Click(object sender, EventArgs e)
         {
-            if (tipo_ope == -1)
-            {
-                txtPantalla.Clear();
-                tipo_ope = 0;
-            }
-            txtPantalla.Text += "8";
+            agregar_numero("8");
         }
 
         private void btn_nueve_Click(object sender, EventArgs e)
         {
-            if (tipo_ope == -1)
-            {
-                txtPantalla.Clear();
-                tipo_ope = 0;
-            }
-            txtPantalla.Text += "9";
+            agregar_numero("9");
         }
 
         private void btn_cero_Click(object sender, EventArgs e)
         {
-            if (tipo_ope == -1)
-            {
-                txtPantalla.Clear();
-                tipo_ope = 0;
-            }
-            txtPantalla.Text += "0";
+            agregar_numero("0");
+        }
+
+        #endregion
+
+        #region BOTONES FUNCIONES
+        private void btn_limpiar_Click(object sender, EventArgs e)
+        {
+            this.txtPantalla.Clear();
         }
 
         private void btn_igual_Click(object sender, EventArgs e)
@@ -166,7 +118,7 @@ namespace Examen_Programacion_3
                             break;
                     }
                     
-                    //tipo_ope = -1;
+                    tipo_ope = -1;
 
                 }
                 else
@@ -182,83 +134,48 @@ namespace Examen_Programacion_3
 
         private void btn_suma_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (!txtPantalla.Text.Equals(""))
-                {
-                    primer_num = double.Parse(txtPantalla.Text);
-                    tipo_ope = 1; //identificador de la suma
-                    txtPantalla.Clear();
-
-                }
-                else
-                {
-                    Console.Write("Campo vacio\n");
-                }
-            }
-            catch (Exception ex)
-            {
-                throw (ex);
-            }
+            agregar_Operadores(1);
         }
 
         private void btn_resta_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (!txtPantalla.Text.Equals(""))
-                {
-                    primer_num = double.Parse(txtPantalla.Text);
-                    tipo_ope = 2; //identificador de la resta
-                    txtPantalla.Clear();
-
-                }
-                else
-                {
-                    Console.Write("Campo vacio\n");
-                }
-            }
-            catch (Exception ex)
-            {
-                throw (ex);
-            }
+            agregar_Operadores(2);
         }
 
         private void btn_multiplicar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (!txtPantalla.Text.Equals(""))
-                {
-                    primer_num = double.Parse(txtPantalla.Text);
-                    tipo_ope = 3; //identificador de la multiplicación
-                    txtPantalla.Clear();
-
-                }
-                else
-                {
-                    Console.Write("Campo vacio\n");
-                }
-            }
-            catch (Exception ex)
-            {
-                throw (ex);
-            }
+            agregar_Operadores(3);
         }
 
         private void btn_division_Click(object sender, EventArgs e)
+        {
+            agregar_Operadores(4);
+        }
+
+        #endregion
+
+        #region METODOS ADICIONALES
+
+        private void agregar_numero(String numero)
+        {
+            if (tipo_ope == -1)
+            {
+                txtPantalla.Clear();
+                tipo_ope = 0;
+            }
+            txtPantalla.Text += numero;
+        }
+        private void agregar_Operadores(int operador)
         {
             try
             {
                 if (!txtPantalla.Text.Equals(""))
                 {
                     primer_num = double.Parse(txtPantalla.Text);
-                    tipo_ope = 4; //identificador de la división
+                    tipo_ope = operador; //Operador identificador
                     txtPantalla.Clear();
-
                 }
-                else
-                {
+                else{
                     Console.Write("Campo vacio\n");
                 }
             }
@@ -267,5 +184,7 @@ namespace Examen_Programacion_3
                 throw (ex);
             }
         }
+
+        #endregion
     }
 }
