@@ -166,7 +166,7 @@ namespace Examen_Programacion_3
                             break;
                     }
                     
-                    //tipo_ope = -1; //Verificación para borrar despues de hacer las operaciones
+                    tipo_ope = -1; //Verificación para borrar despues de hacer las operaciones
 
                 }
                 else
@@ -182,83 +182,35 @@ namespace Examen_Programacion_3
 
         private void btn_suma_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (!txtPantalla.Text.Equals(""))
-                {
-                    primer_num = double.Parse(txtPantalla.Text);
-                    tipo_ope = 1; //identificador de la suma
-                    txtPantalla.Clear();
-
-                }
-                else
-                {
-                    Console.Write("Campo vacio\n");
-                }
-            }
-            catch (Exception ex)
-            {
-                throw (ex);
-            }
+            agregar_Operadores(1);
         }
 
         private void btn_resta_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (!txtPantalla.Text.Equals(""))
-                {
-                    primer_num = double.Parse(txtPantalla.Text);
-                    tipo_ope = 2; //identificador de la resta
-                    txtPantalla.Clear();
-
-                }
-                else
-                {
-                    Console.Write("Campo vacio\n");
-                }
-            }
-            catch (Exception ex)
-            {
-                throw (ex);
-            }
+            agregar_Operadores(2);
         }
 
         private void btn_multiplicar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (!txtPantalla.Text.Equals(""))
-                {
-                    primer_num = double.Parse(txtPantalla.Text);
-                    tipo_ope = 3; //identificador de la multiplicación
-                    txtPantalla.Clear();
-
-                }
-                else
-                {
-                    Console.Write("Campo vacio\n");
-                }
-            }
-            catch (Exception ex)
-            {
-                throw (ex);
-            }
+            agregar_Operadores(3);
         }
 
         private void btn_division_Click(object sender, EventArgs e)
+        {
+            agregar_Operadores(4);
+        }
+
+        private void agregar_Operadores(int operador)
         {
             try
             {
                 if (!txtPantalla.Text.Equals(""))
                 {
                     primer_num = double.Parse(txtPantalla.Text);
-                    tipo_ope = 4; //identificador de la división
+                    tipo_ope = operador; //identificador de la multiplicación
                     txtPantalla.Clear();
-
                 }
-                else
-                {
+                else{
                     Console.Write("Campo vacio\n");
                 }
             }
