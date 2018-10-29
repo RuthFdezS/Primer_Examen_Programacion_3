@@ -166,7 +166,7 @@ namespace Examen_Programacion_3
                             break;
                     }
                     
-                    //tipo_ope = -1;
+                    //tipo_ope = -1; //Verificación para borrar despues de hacer las operaciones
 
                 }
                 else
